@@ -5,15 +5,20 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
 
+const Controller = require("./routes/routting.js");
+
 dotenv.config();
 const app = express();
 app.use(helmet());
+app.use(corns());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
-const connect_mongo = process.env.MONGODB_URI;
+const connect_mongo =
+  process.env.MONGODB_URI ||
+  "mongodb+srv://Muki:cluster_db@cluster.gdtr3.mongodb.net/Mini-Blog?retryWrites=true&w=majority";
 const port = process.env.PORT || 8000;
 
 mongo.connect(connect_mongo, {
@@ -25,7 +30,4 @@ mongo.connect(connect_mongo, {
 app.listen(port);
 console.log("Server on 192.168.0.103 :: " + port);
 
-app.get("/Test", (req, res) => {
-  console.log("Running");
-  res.end();
-});
+app.use(Controller);
