@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useState } from "react";
-import usePost from "../server_fetch/usePost";
 
 const SignUp = (props) => {
   const [username, setUsername] = useState("");
@@ -8,10 +8,35 @@ const SignUp = (props) => {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [isPending, setIsPending] = useState(false);
+  const [errmsg, setErrmsg] = useState(null);
+
+  const history = useHistory();
+
   const Sumbit = (e) => {
+    setIsPending(true);
     e.preventDefault();
     const data = { username, name, mail, password };
-    const { errMsg } = usePost(props.LocationPost, data);
+    fetch(props.LocationPost, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => {
+        setErrmsg(null);
+        return res.json().then((err) => {
+          if (err.message === "CleanRun") {
+            setIsPending(false);
+            history.push("/login");
+          } else {
+            setIsPending(false);
+            setErrmsg(err.message);
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -50,8 +75,26 @@ const SignUp = (props) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {errMsg && <p>{errMsg}</p>}
-        <button onClick={Sumbit}>Sumbit</button>
+        {errmsg && <div>{errmsg}</div>}
+        {!isPending && <button onClick={Sumbit}>Sumbit</button>}
+        {isPending && (
+          <button disabled>
+            <div className="lds-spinner">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </button>
+        )}
       </form>
       <div className="form-below">
         <Link to="/feedback">feedback</Link>
