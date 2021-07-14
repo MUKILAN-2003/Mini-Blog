@@ -3,8 +3,11 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 
-const createToken_Login = (id) => {
-  return jwt.sign({ id }, "%$iwudibdiiwd@#$wdjdwnomdw(*&whdwhd#$>idnw(*&^");
+const createToken_Login = (id, name) => {
+  return jwt.sign(
+    { id, name },
+    "%$iwudibdiiwd@#$wdjdwnomdw(*&whdwhd#$>idnw(*&^"
+  );
 };
 
 const Login = async (req, res) => {
@@ -20,11 +23,12 @@ const Login = async (req, res) => {
     );
   } else {
     if (await bcrypt.compare(user_find.password, user.password)) {
-      const token = createToken_Login(user._id);
-      res.cookie("jwt", token);
+      const token = createToken_Login(user._id, user.name);
       res.send(
         JSON.stringify({
           message: "CleanRun",
+
+          jwt: token,
         })
       );
     } else {

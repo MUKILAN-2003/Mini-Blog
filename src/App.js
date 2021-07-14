@@ -4,6 +4,7 @@ import "./css/lds_spinner.css";
 import HNavbar from "./component/h_navbar";
 import DNavbar from "./component/d_navbar";
 import Home from "./component/home";
+import Logout from "./component/logout";
 import Login from "./component/form_component/login";
 import SignUp from "./component/form_component/signup";
 import ResetPass from "./component/form_component/reset_pass";
@@ -16,27 +17,30 @@ function App() {
         <Router>
           <div className="App">
             <Switch>
-              <Route exact path="/">
+              <Route exact path="/logout">
+                <Logout />
+              </Route>
+              <Route exact path="/home">
                 <HNavbar />
                 <Home />
               </Route>
-              <Route path="/register">
+              <Route exact path="/register">
                 <HNavbar />
                 <SignUp LocationPost={"/user_register"} />
               </Route>
-              <Route path="/login">
+              <Route exact path="/login">
                 <HNavbar />
                 <Login LocationPost={"/user_login"} />
               </Route>
-              <Route path="/forgot_pass">
+              <Route exact path="/forgot_pass">
                 <HNavbar />
                 <ResetPass LocationPost={"/forgot_pass"} />
               </Route>
-              <Route path="/feedback">
+              <Route exact path="/feedback">
                 <HNavbar />
                 <FeedBack LocationPost={"/user_feedback"} />
               </Route>
-              <Route path="/dashboard">
+              <Route exact path="/dashboard">
                 <DNavbar />
               </Route>
             </Switch>

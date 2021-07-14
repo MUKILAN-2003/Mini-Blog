@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 const Login = (props) => {
   const [username, setUsername] = useState("");
@@ -21,6 +22,7 @@ const Login = (props) => {
         setErrmsg(null);
         return res.json().then((err) => {
           if (err.message === "CleanRun") {
+            Cookies.set("jwt", err.jwt);
             setIsPending(false);
             history.push("/dashboard");
           } else {
