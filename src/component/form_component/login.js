@@ -36,11 +36,12 @@ const Login = (props) => {
       });
   };
   return (
-    <div className="create">
+    <div className="form-center">
       <h2>Login</h2>
       <form action={props.LocationPost} method="post">
         <label>Username :</label>
         <input
+          autoComplete="off"
           type="text"
           name="username"
           required
@@ -49,13 +50,14 @@ const Login = (props) => {
         />
         <label>Password :</label>
         <input
+          autoComplete="off"
           type="password"
           name="password"
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {errmsg && <div>{errmsg}</div>}
+        {errmsg && <div className="login-err-msg">{errmsg}</div>}
         {!isPending && <button onClick={Sumbit}>Login</button>}
         {isPending && (
           <button disabled>

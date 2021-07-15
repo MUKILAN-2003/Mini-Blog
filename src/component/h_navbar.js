@@ -10,12 +10,14 @@ const HNavbar = () => {
       </div>
       <div className="nav-links">
         <div className="welcome-note">
-          <img
-            src="/favicon.ico"
-            width={30}
-            height={30}
-            alt={"Brand_Logo"}
-          ></img>
+          <Link to="/home">
+            <img
+              src="/favicon.ico"
+              width={30}
+              height={30}
+              alt={"Brand_Logo"}
+            ></img>
+          </Link>
           <strong>
             <p style={{ textAlign: "right", color: "#ff6600", margin: 10 }}>
               Mini Blog

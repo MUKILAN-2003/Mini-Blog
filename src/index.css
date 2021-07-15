@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+* {
+  font-family: "Quicksand";
+}
+
 body {
   margin: 0px;
   background-color: whitesmoke;
@@ -68,19 +72,28 @@ body {
 }
 
 /*Authentication Styling*/
-.create {
+.form-center {
   border-radius: 30px;
   padding: 20px;
-  box-shadow: 0px 0px 10px 1px black;
-  max-width: 300px;
   margin: 30px auto;
+  max-width: 320px;
   text-align: center;
 }
-.create label {
+
+.addform-center {
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 650px;
+  text-align: center;
+}
+
+.form-center label,
+.addform-center label {
   text-align: left;
   display: block;
 }
-.create h2 {
+.form-center h2,
+.addform-center h2 {
   border-bottom: 3px solid #0099ff67;
   font-size: 28px;
   color: #ff6600;
@@ -100,9 +113,10 @@ body {
   text-decoration: underline;
 }
 
-.create input,
-.create textarea,
-.create select {
+.form-center input,
+.form-center textarea,
+.addform-center input,
+.addform-center textarea {
   resize: vertical;
   width: 100%;
   padding: 6px 10px;
@@ -111,7 +125,8 @@ body {
   box-sizing: border-box;
   display: block;
 }
-.create button {
+.form-center button,
+.addform-center button {
   margin: 10px 0px;
   background: #0099ff67;
   color: #ff6600;
@@ -123,6 +138,96 @@ body {
   cursor: pointer;
 }
 
-.create button:hover {
+.form-center button:hover,
+.addform-center button:hover {
   box-shadow: 0px 0px 10px 2px #ff6600;
+}
+.login-err-msg {
+  color: red;
+
+  box-shadow: 0px 0px 5px 1px red;
+}
+
+/*All Blog Styling*/
+.main-page-blogs {
+  margin: 30px auto;
+  text-align: center;
+}
+.main-page-blogs button {
+  background-color: transparent;
+  border-width: 0px;
+}
+
+.blog-preview {
+  animation: flipInX;
+  animation-duration: 1.5s;
+  transition: 0.7s;
+}
+
+@media (min-width: 768px) {
+  .blog-preview {
+    padding: 10px 16px;
+    margin: 20px 30px;
+    border-bottom: 1px solid #d3d3d3;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-preview {
+    padding: 10px 16px;
+    margin: 20px 10px;
+    border-bottom: 1px solid #d3d3d3;
+  }
+}
+
+.blog-preview:hover {
+  cursor: pointer;
+  box-shadow: -2px 4px 5px #0099ff67;
+  transform: scale(1.12);
+}
+.blog-preview h2 {
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #ff6600;
+  margin-bottom: 8px;
+}
+.blog-preview a {
+  text-decoration: none;
+}
+
+/*Blog Detail Styling*/
+
+@media (min-width: 768px) {
+  .blog-details {
+    padding: 10px 16px;
+    margin: 20px 30px;
+    border-bottom: 1px solid #d3d3d3;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-details {
+    margin: 20px 10px;
+  }
+}
+.blog-details h2 {
+  font-size: 27px;
+  color: #ff6600;
+  margin-bottom: 10px;
+}
+.blog-details div {
+  margin: 20px 0;
+}
+.blog-details button {
+  background: #ff6600;
+  font-weight: bold;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.blog-details button:hover {
+  box-shadow: 0px 0px 10px 2px #0099ffc9;
 }

@@ -1,10 +1,9 @@
 import Cookies from "js-cookie";
-import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router";
 
 const Logout = () => {
-  const history = useHistory();
   Cookies.remove("jwt");
-  history.push("/home");
+  return <Redirect to="/home" />;
 };
 
 export default Logout;

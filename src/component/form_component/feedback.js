@@ -38,11 +38,12 @@ const FeedBack = (props) => {
       });
   };
   return (
-    <div className="create">
+    <div className="form-center">
       <h2>Feedback Form</h2>
       <form action={props.LocationPost} method="post">
         <label>Name:</label>
         <input
+          autoComplete="off"
           type="text"
           name="name"
           required
@@ -51,6 +52,7 @@ const FeedBack = (props) => {
         />
         <label>Mail-Id :</label>
         <input
+          autoComplete="off"
           type="mail"
           name="mail"
           required
@@ -59,6 +61,7 @@ const FeedBack = (props) => {
         />
         <label>Feedback :</label>
         <textarea
+          autoComplete="off"
           type="text"
           name="feedback"
           required

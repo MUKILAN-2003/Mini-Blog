@@ -40,11 +40,12 @@ const SignUp = (props) => {
   };
 
   return (
-    <div className="create">
+    <div className="form-center">
       <h2>Signup</h2>
       <form>
         <label>Username :</label>
         <input
+          autoComplete="off"
           type="text"
           name="username"
           required
@@ -53,6 +54,7 @@ const SignUp = (props) => {
         />
         <label>Name:</label>
         <input
+          autoComplete="off"
           type="text"
           name="name"
           required
@@ -61,6 +63,7 @@ const SignUp = (props) => {
         />
         <label>Email-Id :</label>
         <input
+          autoComplete="off"
           type="mail"
           name="mail"
           required
@@ -69,6 +72,7 @@ const SignUp = (props) => {
         />
         <label>Password:</label>
         <input
+          autoComplete="off"
           type="password"
           name="password"
           required
