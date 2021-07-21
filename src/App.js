@@ -13,6 +13,8 @@ import Logout from "./component/logout";
 import DeleteBlog from "./component/delete_it";
 import ShowProfile from "./component/profile/Profile";
 import Login from "./component/form_component/login";
+import ChangePassword from "./component/form_component/change_password";
+
 import SignUp from "./component/form_component/signup";
 import ResetPass from "./component/form_component/reset_pass";
 import FeedBack from "./component/form_component/feedback";
@@ -76,6 +78,10 @@ function App() {
               </Route>
               <Route exact path="/delete_blog/:id">
                 <DeleteBlog />
+              </Route>
+              <Route exact path="/reset/password/:tmpid/:tmptoken/:userid">
+                <HNavbar />
+                <ChangePassword />
               </Route>
             </Switch>
           </div>

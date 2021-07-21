@@ -2,9 +2,7 @@ import useGet from "./server_fetch/useGet";
 import { Link } from "react-router-dom";
 
 const DisplayBlog = (props) => {
-  const { data, error, isPending } = useGet(
-    "http://localhost:8000/get_all_blogs"
-  );
+  const { data, error, isPending } = useGet("/get_all_blogs");
   if (data) {
     var blogs = data.allData;
     return (

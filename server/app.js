@@ -28,6 +28,6 @@ mongo.connect(connect_mongo, {
 });
 
 app.listen(port);
-console.log("Server on 192.168.0.103 :: " + port);
+console.log("Server Listening :: " + port);
 
 app.use(Controller);

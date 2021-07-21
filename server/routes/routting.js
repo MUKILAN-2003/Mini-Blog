@@ -16,4 +16,9 @@ router.get("/detail-blogs/:id", GetData.GetOneData);
 
 router.get("/blog-delete/:id", GetData.DeleteData);
 
+router.post(
+  "/verifyed_success/change_password/:tkn",
+  AuthenticationController.email_checked
+);
+
 module.exports = router;
