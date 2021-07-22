@@ -35,10 +35,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "frontend": "npm start mini-blog",
-    "backend": "nodemon server/app.js",
-    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+    "eject": "react-scripts eject"
   },
   "engines": {
     "node": "14.17.3"

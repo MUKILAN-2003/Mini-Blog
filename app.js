@@ -3,6 +3,7 @@ const mongo = require("mongoose");
 const corns = require("cors");
 const dotenv = require("dotenv");
 const helmet = require("helmet");
+const path = require("path");
 const cookieParser = require("cookie-parser");
 
 const Controller = require("./routes/routting.js");
@@ -27,11 +28,13 @@ mongo.connect(connect_mongo, {
   useCreateIndex: true,
 });
 
+console.log("Database Connection Check............ok");
+
 app.listen(port);
 console.log("Server Listening :: " + port);
+
+app.use(Controller);
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
-
-app.use(Controller);

@@ -32,7 +32,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "npm install && node app.js"
+    "start": "node app.js"
   },
   "engines": {
     "node": "14.17.3"
