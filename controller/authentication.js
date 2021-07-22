@@ -31,7 +31,7 @@ const createToken_Login = (id, name, username, mail) => {
 
 const send_mail_reset = async (mailto, tmpid, tmptoken, userid, tmpname) => {
   var redirect_link =
-    "http://localhost:3000/reset/password/" +
+    "https://web-miniblog.herokuapp.com//reset/password/" +
     tmpid +
     "/" +
     tmptoken +
