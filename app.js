@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const connect_mongo =
   process.env.MONGODB_URI ||
-  "mongodb+srv://Muki:cluster_db@cluster.gdtr3.mongodb.net/Mini-Blog?retryWrites=true&w=majority";
+  "--------------------------MONGO (db) URI-------------------------------";
 const port = process.env.PORT || 8000;
 
 mongo.connect(connect_mongo, {
