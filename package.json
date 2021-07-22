@@ -32,8 +32,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "heroku-postbuild": "cd client && npm install",
-    "start": "node app.js"
+    "start": "npm install && node app.js"
   },
   "engines": {
     "node": "14.17.3"
