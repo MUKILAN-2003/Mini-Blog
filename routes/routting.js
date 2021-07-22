@@ -21,9 +21,8 @@ router.post(
   AuthenticationController.email_checked
 );
 
-app.get("/*", (req, res) => {
+router.get("/*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  console.log("Test");
 });
 
 module.exports = router;
