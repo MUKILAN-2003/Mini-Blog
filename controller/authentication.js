@@ -10,7 +10,7 @@ let transporter = nodemailer.createTransport({
   secure: false, //only true when using 465 port
   auth: {
     user: "mukilan069@gmail.com",
-    pass: "sjravhxqfdcrgpjr",
+    pass: "---mail security code---",
   },
 });
 
@@ -25,7 +25,7 @@ transporter.verify(function (error, success) {
 const createToken_Login = (id, name, username, mail) => {
   return jwt.sign(
     { id, name, username, mail },
-    "%$iwudibdiiwd@#$wdjdwnomdw(*&whdwhd#$>idnw(*&^"
+    "--------------Login Secure Key--------------"
   );
 };
 
@@ -115,7 +115,7 @@ const Signup = async (req, res) => {
 };
 
 const createToken_PR = (id) => {
-  return jwt.sign({ id }, "^&*(wndi>$#dhwdhw&*(wdmonwdjdw$#@dwiidbiduwi$%");
+  return jwt.sign({ id }, "------------------Reset Password Key-------------------");
 };
 
 const ResetPass = async (req, res) => {
