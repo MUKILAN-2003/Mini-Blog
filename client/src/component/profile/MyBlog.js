@@ -18,7 +18,7 @@ const DisplayMyBlog = (props) => {
     );
   }
   const { data, error, isPending } = useGet(
-    "http://localhost:8000/get_my_blog/" + cookie_parse.username
+    "/get_my_blog/" + cookie_parse.username
   );
 
   if (data) {

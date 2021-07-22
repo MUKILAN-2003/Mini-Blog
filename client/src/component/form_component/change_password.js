@@ -17,14 +17,11 @@ const ChangePassword = () => {
       setIsPending(true);
       e.preventDefault();
       const data = { username, password };
-      fetch(
-        "http://localhost:8000/verifyed_success/change_password/" + tmptoken,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        }
-      )
+      fetch("/verifyed_success/change_password/" + tmptoken, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      })
         .then((res) => {
           setErrmsg(null);
           return res.json().then((err) => {
