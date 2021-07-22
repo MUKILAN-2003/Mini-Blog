@@ -9,11 +9,11 @@ const Controller = require("./routes/routting.js");
 
 dotenv.config();
 const app = express();
-app.use(helmet());
 app.use(corns());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static("public"));
+app.use(express.static("client/build"));
 app.use(express.urlencoded({ extended: true }));
 
 const connect_mongo =
@@ -31,3 +31,8 @@ app.listen(port);
 console.log("Server Listening :: " + port);
 
 app.use(Controller);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  console.log("Test");
+});
